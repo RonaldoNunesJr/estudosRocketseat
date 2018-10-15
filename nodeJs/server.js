@@ -1,10 +1,22 @@
 const express = require('express');
-
+const cors = require('cors');
+const mongoose = require('mongoose');
+const requireDir = require('require-dir')
+// Iniciando o APP
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hellow Wolrd 1</h1>')
-})
+// Iniciando o DB
+mongoose.connect(
+    'mongodb://localhost:27017/nodeapi',
+    {useNewUrlParser:true}
+);
+
+requireDir('./src/models');
+
+// Rotas
+app.use('/api', require('./src/routes'))
 
 app.listen(3001, (req, res) => {
     console.log("Server rodando, e disponivel na porta 3001 | localhost:3001");
