@@ -1,0 +1,8 @@
+sobre o docker. 
+
+docker pull mongo [instala o container do mongo.]
+docker run --name mongodb -p 27017:27017 -d mongo [para criar o nome do banco, "-p" redireciconar a porta do "27017(da minha maquina):27017(para a porta do server do mongo) "-d mongo"(a imagem que eu quero rodar)]
+docker ps [retorna quais imagens estão rodando].
+docker ps -a [retorna todas as imagens].
+docker start "nome da imagem"
+docker stop "nome da imagem"
